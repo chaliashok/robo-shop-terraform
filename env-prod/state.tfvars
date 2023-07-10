@@ -1,3 +1,3 @@
-bucket = "terraform-learning"
-key    = "dev/terraform.tfstate"
+bucket = "terraform-chakri"
+key    = "prod/terraform.tfstate"
 region = "us-east-1"
