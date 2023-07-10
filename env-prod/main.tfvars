@@ -21,13 +21,13 @@ vpc = {
   }
 }
 
-default_vpc_id        = "vpc-0e451797fe9172e67"
-default_vpc_rt        = "rtb-006100fe759977d85"
-allow_ssh_cidr        = ["172.31.0.8/32"]
-zone_id               = "Z055331734ICV430E01P7"
-kms_key_id            = "f0a71b80-90c3-4da1-a189-b4b95e9764e8"
-kms_key_arn           = "arn:aws:kms:us-east-1:739561048503:key/f0a71b80-90c3-4da1-a189-b4b95e9764e8"
-allow_prometheus_cidr = ["172.31.95.219/32"]
+default_vpc_id        = "vpc-0540f7b26ac7f8695"
+default_vpc_rt        = "rtb-0f8c474a1a42c2a66"
+allow_ssh_cidr        = ["172.31.13.223/32"]
+zone_id               = "Z0783442RLRP3KGA9XLU"
+kms_key_id            = "9bd896cf-ebab-4908-95af-8aa0d7800a5f"
+kms_key_arn           = "arn:aws:kms:us-east-1:355820959649:key/9bd896cf-ebab-4908-95af-8aa0d7800a5f"
+#allow_prometheus_cidr = ["172.31.95.219/32"]
 
 rabbitmq = {
   main = {
@@ -106,7 +106,7 @@ apps = {
     subnet_ref         = "app"
     lb_ref             = "private"
     lb_rule_priority   = 101
-    extra_param_access = ["arn:aws:ssm:us-east-1:739561048503:parameter/roboshop.dev.docdb.*"]
+    extra_param_access = ["arn:aws:ssm:us-east-1:355820959649:parameter/roboshop.dev.docdb.*"]
   }
   user = {
     component          = "user"
@@ -118,7 +118,7 @@ apps = {
     subnet_ref         = "app"
     lb_ref             = "private"
     lb_rule_priority   = 102
-    extra_param_access = ["arn:aws:ssm:us-east-1:739561048503:parameter/roboshop.dev.docdb.*"]
+    extra_param_access = ["arn:aws:ssm:us-east-1:355820959649:parameter/roboshop.dev.docdb.*"]
   }
   shipping = {
     component          = "shipping"
@@ -130,7 +130,7 @@ apps = {
     subnet_ref         = "app"
     lb_ref             = "private"
     lb_rule_priority   = 103
-    extra_param_access = ["arn:aws:ssm:us-east-1:739561048503:parameter/roboshop.dev.mysql.*"]
+    extra_param_access = ["arn:aws:ssm:us-east-1:355820959649:parameter/roboshop.dev.mysql.*"]
   }
   payment = {
     component        = "payment"
@@ -142,6 +142,17 @@ apps = {
     subnet_ref       = "app"
     lb_ref           = "private"
     lb_rule_priority = 104
+  }
+  payment = {
+    component        = "dispatch"
+    app_port         = 8080
+    instance_type    = "t3.small"
+    desired_capacity = 1
+    max_size         = 1
+    min_size         = 1
+    subnet_ref       = "app"
+    lb_ref           = "private"
+    lb_rule_priority = 105
   }
   frontend = {
     component        = "frontend"
