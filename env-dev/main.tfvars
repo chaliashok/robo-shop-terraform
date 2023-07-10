@@ -21,8 +21,8 @@ vpc = {
   }
 }
 
-default_vpc_id        = "vpc-0e451797fe9172e67"
-default_vpc_rt        = "rtb-006100fe759977d85"
+default_vpc_id        = "vpc-0540f7b26ac7f8695"
+default_vpc_rt        = "rtb-0f8c474a1a42c2a66"
 allow_ssh_cidr        = ["172.31.13.223/32"]
 zone_id               = "Z0783442RLRP3KGA9XLU"
 kms_key_id            = "9bd896cf-ebab-4908-95af-8aa0d7800a5f"
